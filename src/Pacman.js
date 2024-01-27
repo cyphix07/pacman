@@ -89,6 +89,15 @@ export default class Pacman {
           this.currentMovingDirection = this.requestedMovingDirection;
       }
     }
+    if (
+      this.tileMap.didCollideWithEnviornment(
+        this.x,
+        this.y,
+        this.currentMovingDirection,
+      )
+    ) {
+      return;
+    }
     switch (this.currentMovingDirection) {
       case MovingDirection.up:
         this.y -= this.velocity;
